@@ -20,3 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('schedules', App\Http\Controllers\ScheduleController::class)->middleware('auth');
+Route::put('/schedules/{schedule}/updateByCalendar', [App\Http\Controllers\ScheduleController::class, 'updateByCalendar'])->name('updateByCalendar');
